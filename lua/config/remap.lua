@@ -3,7 +3,7 @@ vim.keymap.set('v', '<S-k>', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', '<S-j>', ":m '>+1<CR>gv=gv")
 
 -- Quickfix Diagnostic
-vim.keymap.set('n', '<leader>q', function()
+vim.keymap.set({ 'n', 'i' }, '<leader>q', function()
   local is_open = false
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     if vim.api.nvim_win_get_config(win).relative == "" then
