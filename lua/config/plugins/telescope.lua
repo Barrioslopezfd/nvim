@@ -23,6 +23,12 @@ return {
       vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
 
+      vim.keymap.set('n', 'gd', builtin.lsp_definitions)
+      vim.keymap.set('n', 'grr', builtin.lsp_references, { noremap = true })
+      vim.keymap.set('n', 'gri', builtin.lsp_implementations, { noremap = true })
+
+      -- vim.keymap.set('n', '<leader>q', builtin.diagnostics)
+
       vim.keymap.set('n', '<leader>nvim', function()
         builtin.find_files {
           cwd = vim.fn.stdpath("config")

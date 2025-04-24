@@ -57,4 +57,6 @@ vim.api.nvim_create_user_command('Termo', function()
   end
 end, {})
 
-vim.keymap.set({ 'n' }, '<leader>te', '<cmd>Termo<CR>')
+vim.keymap.set({ 'n', 't' }, '<C-t>', '<cmd>Termo<CR>')
+
+vim.keymap.set('n', '<C-g>', '<cmd>Termo<CR>igo run .<CR>')

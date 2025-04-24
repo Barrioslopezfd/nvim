@@ -1,7 +1,7 @@
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 vim.schedule(function()
-    vim.opt.clipboard = 'unnamedplus'
+  vim.opt.clipboard = 'unnamedplus'
 end)
 
 -- Make line numbers default
@@ -43,10 +43,9 @@ vim.opt.scrolloff = 10
 -- Set the cursor to always block no blink
 vim.opt.guicursor = 'n-v-c-i:blinkon0-block'
 
---[[ Still checking if i can do this on a per-file basis
+-- Still checking if i can do this on a per-file basis
 -- Space instead of tab, 4 spaces as it should be
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-]] --

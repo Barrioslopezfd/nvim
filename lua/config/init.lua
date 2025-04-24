@@ -1,4 +1,4 @@
-require "config.remap"
+require "config.lazy"
 require "config.custom"
 require "config.config"
-require "config.lazy"
+require "config.remap"
