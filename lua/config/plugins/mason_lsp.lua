@@ -20,15 +20,21 @@ return {
 
     config = function()
       require("mason").setup()
-      require("mason-lspconfig").setup()
+      local mason_lspconfig = require("mason-lspconfig")
+      mason_lspconfig.setup()
+      -- require("mason-lspconfig").setup()
 
       local lspconfig = require("lspconfig")
 
-      require("mason-lspconfig").setup_handlers({
-        function(server_name)
-          lspconfig[server_name].setup({})
-        end,
-      })
+      for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
+          lspconfig[server].setup({})
+      end
+
+      -- require("mason-lspconfig").setup_handlers({
+      --   function(server_name)
+      --     lspconfig[server_name].setup({})
+      --   end,
+      -- })
 
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*",

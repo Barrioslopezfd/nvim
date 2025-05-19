@@ -14,6 +14,21 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
+vim.env.PATH = vim.env.PATH .. ":" .. os.getenv("HOME") .. "/.local/share/nvim/lazy-rocks/hererocks/bin"
+
+-- vim.g.clipboard = {
+--   name = "xclip",
+--   copy = {
+--     ["+"] = { "xclip", "-selection", "clipboard" },
+--     ["*"] = { "xclip", "-selection", "primary" },
+--   },
+--   paste = {
+--     ["+"] = { "xclip", "-selection", "clipboard", "-o" },
+--     ["*"] = { "xclip", "-selection", "primary", "-o" },
+--   },
+--   cache_enabled = false,
+-- }
+
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
