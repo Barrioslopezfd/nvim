@@ -112,6 +112,29 @@ return {
           }
         }
       }
+      --
+      --[[ ======= JAVA ======= ]] --
+      --
+      local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+
+      -- Find project root dir
+      local root_markers = { ".git", "build.gradle", "pom.xml", ".project" }
+      local root_dir = lspconfig.util.root_pattern(unpack(root_markers))(vim.fn.getcwd()) or vim.fn.getcwd()
+
+      lspconfig.jdtls.setup({
+        cmd = {
+          jdtls_path .. "/bin/jdtls", -- path to executable
+          "-data", vim.fn.stdpath("data") .. "/jdtls-workspace"
+        },
+        root_dir = root_dir,
+        settings = {
+          java = {
+            project = {
+              sourcePaths = { "src" } -- set src as root
+            }
+          }
+        }
+      })
     end
   }
 }

@@ -1,9 +1,8 @@
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+vim.opt.clipboard = 'unnamedplus'
 
+vim.opt.fixendofline = true
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
