@@ -1,0 +1,6 @@
+{
+  "habamax.nvim": { "branch": "master", "commit": "4a4105aea429fca3cb5ebcca584e21b9af2ae265" },
+  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "lush.nvim": { "branch": "main", "commit": "7185e4e50e4a78a8e89e3071da38c226e1d13c23" },
+  "nvim-treesitter": { "branch": "main", "commit": "b26b4258294c742c2613a7d98fe53014d1c8fe49" }
+}

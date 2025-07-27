@@ -1,5 +1,6 @@
 require "config"
 require "lsp"
+require "custom"
 
 
 -- [[ Add optional packages ]]
