@@ -1,7 +1,6 @@
-return {
-  "ntk148v/habamax.nvim",
-  dependencies = { "rktjmp/lush.nvim" },
-  config = function()
-    vim.cmd("colorscheme habamax.nvim")
-  end,
-}
+vim.pack.add({
+  { src = 'https://github.com/rktjmp/lush.nvim' },
+  { src = 'https://github.com/ntk148v/habamax.nvim' },
+})
+vim.cmd("colorscheme habamax")
+-- dependencies = { "rktjmp/lush.nvim" },

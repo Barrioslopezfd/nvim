@@ -1,6 +1,8 @@
+vim.g.mapleader = " "
 require "config"
 require "lsp"
 require "custom"
+require "plugins"
 
 
 -- [[ Add optional packages ]]

@@ -1,25 +1,23 @@
-return {
-  'nvim-treesitter/nvim-treesitter',
-  lazy = false,
-  branch = 'main',
-  build = ':TSUpdate',
-  config = function()
-    require('nvim-treesitter').setup {
-      install_dir = vim.fn.stdpath('data') .. '/site',
-    }
-    local languages = {
-      'rust', 'javascript', 'zig', 'go',
-      'yaml', 'toml', 'json', 'jsonnet',
-      'java', 'markdown', 'bash', 'sh', 'lua'
-    }
-    require('nvim-treesitter').install(languages):wait(300000)
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = languages,
-      callback = function()
-        vim.treesitter.start()
-        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      end,
-    })
-  end,
+vim.pack.add {
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
 }
+
+require('nvim-treesitter.configs').setup({
+  ensure_installed = { 'lua', 'go' },
+  sync_install = false,
+  auto_install = true,
+  ignore_install = {},
+
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+  },
+
+  modules = {}, -- 👈 necesario aunque no uses módulos personalizados
+})

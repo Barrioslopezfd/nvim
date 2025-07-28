@@ -3,11 +3,10 @@ vim.o.relativenumber = true
 vim.o.scrolloff = 8
 
 vim.o.ignorecase = true
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.smartcase = true
 
--- Highlight the line where the cursor is on
 vim.o.cursorline = true
+vim.o.signcolumn = 'number'
 
 vim.o.termguicolors = true
 vim.o.colorcolumn = "100"
@@ -16,3 +15,4 @@ vim.o.completeopt = "fuzzy,longest,menu,menuone"
 vim.o.undofile = true
 
 vim.o.guicursor = "a:block"
+vim.o.winborder = "single"

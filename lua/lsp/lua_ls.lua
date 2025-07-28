@@ -1,38 +1,20 @@
-vim.lsp.config['lua-language-server'] = {
-  -- Command and arguments to start the server.
-  cmd = { 'lua-language-server' },
-  -- Filetypes to automatically attach to.
-  filetypes = { 'lua' },
-  -- Sets the "root directory" to the parent directory of the file in the
-  -- current buffer that contains either a ".luarc.json" or a
-  -- ".luarc.jsonc" file. Files that share a root directory will reuse
-  -- the connection to the same LSP server.
-  -- Nested lists indicate equal priority, see |vim.lsp.Config|.
-  root_dir = vim.fs.dirname(vim.fs.find({ '.git', '.vim', 'nvim' }, { upward = true })[1]),
-  root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
-  -- Srecific settings to send to the server. The schema for this is
-  -- defined by the server. For example the schema for lua-language-server
-  -- can be found here https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
-      -- format = {
-      --   enable = true,
-      -- },
-      runtime = {
-        version = 'LuaJIT',
-      },
+      runtime = { version = 'LuaJIT' },
       workspace = {
+        checkThirdParty = false,
         library = {
-          ["/home/barrioslopezfd/.config/nvim"] = true,
-          ["/usr/local/share/nvim/runtime"] = true,
+          [vim.fn.stdpath('config')] = true,
+          [vim.fn.stdpath('data') .. '/site'] = true,
+          [vim.env.VIMRUNTIME] = true
         },
       },
-      checkThirdParty = false,
-    }
-  }
-}
+    },
+  },
+})
 
-vim.lsp.enable('lua-language-server')
+vim.lsp.enable('lua_ls')
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = "lua",
@@ -43,3 +25,26 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.expandtab = true
   end,
 })
+
+-- vim.lsp.config['lua-language-server'] = {
+--   cmd = { 'lua-language-server' },
+--   filetypes = { 'lua' },
+--   root_dir = vim.fs.dirname(vim.fs.find({ '.git', '.vim', 'nvim' }, { upward = true })[1]),
+--   root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         version = 'LuaJIT',
+--       },
+--       workspace = {
+--         library = {
+--           ["/home/barrioslopezfd/.config/nvim"] = true,
+--           ["/usr/local/share/nvim/runtime"] = true,
+--         },
+--       },
+--       checkThirdParty = false,
+--     }
+--   }
+-- }
+--
+-- vim.lsp.enable('lua-language-server')
