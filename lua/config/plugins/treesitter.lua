@@ -6,7 +6,7 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require 'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-        ensure_installed = { "c", "cpp", "go", "python", "lua", "vim", "vimdoc", "javascript", "typescript", "html", "css" },
+        ensure_installed = { "c", "cpp", "go", "python", "lua", "vim", "vimdoc", "javascript", "typescript", "html", "css", "jsonnet", "markdown" },
         auto_install = false,
         highlight = {
           enable = true,
