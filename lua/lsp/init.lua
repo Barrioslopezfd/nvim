@@ -1,0 +1,7 @@
+require "lsp.lsp_attach"
+require "lsp.lua_ls"
+require "lsp.gopls"
+-- require "lsp.py_ls"
+require "lsp.clangd"
+require "lsp.hls"
+require "lsp.ts_ls"
